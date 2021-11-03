@@ -113,12 +113,6 @@ function play(difficulty, classes) {
 
         containerDiv.append(newElement);
 
-        if (arrMine.length === 1){
-
-            newElement.setAttribute("disabled", false)
-        
-        }
-
     }
 }
 
