@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 150);
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.difficulty {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 5px 13px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 15px;
+}
+
+#container {
+    width: 800px;
+    height: 800px;
+    margin: 30px auto 0;
+}
+
+.squareEasy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 2px solid white;
+    background-color: rgb(0, 255, 136);
+    float: left;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    line-height: 70px;
+    vertical-align: middle;
+}
+
+.squareInterm {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 2px solid white;
+    background-color: rgb(0, 255, 136);
+    float: left;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    line-height: 80px;
+    vertical-align: middle;
+}
+
+.squareHard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 2px solid white;
+    background-color: rgb(0, 255, 136);
+    float: left;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+}
+
+.clicked {
+    background-color: rgb(117, 208, 250);
+}
+
+span {
+    color: red;
+}
