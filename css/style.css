@@ -24,8 +24,8 @@ body {
 }
 
 #container {
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     margin: 30px auto 0;
 }
 
@@ -38,7 +38,7 @@ body {
     cursor: pointer;
     user-select: none;
     text-align: center;
-    line-height: 70px;
+    line-height: 50px;
     vertical-align: middle;
 }
 
@@ -51,7 +51,7 @@ body {
     cursor: pointer;
     user-select: none;
     text-align: center;
-    line-height: 80px;
+    line-height: 60px;
     vertical-align: middle;
 }
 
@@ -64,7 +64,7 @@ body {
     cursor: pointer;
     user-select: none;
     text-align: center;
-    line-height: 100px;
+    line-height: 80px;
     vertical-align: middle;
 }
 
@@ -74,4 +74,8 @@ body {
 
 span {
     color: red;
+}
+
+.mine {
+    background-color: red;
 }

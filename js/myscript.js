@@ -18,6 +18,10 @@ const buttonHard = document.getElementById("hard");
 
 const containerDiv = document.getElementById("container");
 
+/* creiamo una variabile per poi andare a stampare il risultato */
+
+const resultGame = document.getElementById("result");
+
 /* creiamo una funzione comune per generare le celle in base al livello */
 
 function generationElement (elementGenerated, classAdded) {
@@ -46,11 +50,57 @@ buttonHard.addEventListener('click', function() {
 
 /* andiamo a riportare la funzione e a creare il numero di celle necessarie in base al livello scelto dall'utente */
 
+/* function mineGeneration(elementMine, classMine){
+
+    let bombs = document.createElement(elementMine);
+
+    bombs.classList.add(classMine)
+
+    return bombs
+
+} */
+
 function play(difficulty, classes) {
+
+    /* creaimo un'array per le mine */
+
+    const arrMine = [];
+
+    console.log(arrMine);
+
+    /* controlliamo che i numeri non vengano ripetuti, ma che siano 16 numeri diversi */
+
+    for (let i = 0; arrMine.length < 16; i++){
+
+        let num = Math.floor(Math.random() * difficulty) + 1;
+
+        p = arrMine.includes(num);
+
+        if (!p){
+
+            arrMine.push(num);
+
+        }
+
+    }
     
     for (let i = 1; i <= difficulty; i++){
 
         let newElement = generationElement("div", classes);
+
+        let mineEl = generationElement("div", classes);
+    
+        mineEl.addEventListener("click", 
+    
+        function(){
+
+            mineEl.classList.add("mine");
+
+        }
+
+        )
+
+        containerDiv.append(mineEl);
 
         /* aggiungiamo la funzione di click che va a colorare la cella che viene selezionata dall'utente */
 
@@ -61,8 +111,6 @@ function play(difficulty, classes) {
             newElement.classList.add("clicked");
 
             /* andiamo a generare i numeri all'interno delle celle */
-
-            /* newElement.innerHTML = i; */
 
             const squareSpan = `<span>${i}</span>`;
             newElement.innerHTML = squareSpan;
@@ -75,3 +123,27 @@ function play(difficulty, classes) {
 
     }
 }
+
+/* creiamo una funzione per generare un numero casuale tra 1 e 16 */
+
+/* function mineNum (min , max) {
+
+    for (let i = min; i <= max; i++){
+
+        let mineGen = numRandom(1, 16);
+
+        mineGen.addEventListener("click",
+        
+        function(){
+
+            mineGen.classList.add("mine")
+
+        }
+        
+        )
+
+        containerDiv.append(mineGen);
+
+    }
+
+} */
