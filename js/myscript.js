@@ -126,3 +126,19 @@ function play(difficulty, classes) {
 
     }
 }
+
+let counterDisplay = document.getElementById("counter");
+
+let count = 0;
+
+containerDiv.addEventListener ("click",
+
+function(){
+
+    count++
+
+    counterDisplay.innerHTML = `Punteggio ${count}`;
+
+}
+
+)

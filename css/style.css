@@ -86,3 +86,10 @@ span {
     font-size: 20px;
     text-align: center;
 }
+
+#counter {
+    margin-top: 40px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
