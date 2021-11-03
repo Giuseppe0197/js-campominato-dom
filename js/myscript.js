@@ -70,7 +70,7 @@ function play(difficulty, classes) {
 
     /* controlliamo che i numeri non vengano ripetuti, ma che siano 16 numeri diversi */
 
-    for (let i = 0; arrMine.length < 16; i++){
+    while (arrMine.length < 16){
 
         let num = Math.floor(Math.random() * difficulty) + 1;
 
@@ -88,25 +88,28 @@ function play(difficulty, classes) {
 
         let newElement = generationElement("div", classes);
 
-        let mineEl = generationElement("div", classes);
-    
-        mineEl.addEventListener("click", 
-    
-        function(){
-
-            mineEl.classList.add("mine");
-
-        }
-
-        )
-
-        containerDiv.append(mineEl);
+        newElement.setAttribute("id", i);
 
         /* aggiungiamo la funzione di click che va a colorare la cella che viene selezionata dall'utente */
 
         newElement.addEventListener("click",
         
         function(){
+
+            let id = parseInt(newElement.id);
+
+            if(arrMine.includes(id)) {
+
+                this.classList.add("mine");
+
+                resultGame.innerHTML = `Hai perso`;
+
+            } /* else {
+
+                resultGame.innerHTML = `Hai vinto`;
+
+            } */
+
 
             newElement.classList.add("clicked");
 
@@ -123,27 +126,3 @@ function play(difficulty, classes) {
 
     }
 }
-
-/* creiamo una funzione per generare un numero casuale tra 1 e 16 */
-
-/* function mineNum (min , max) {
-
-    for (let i = min; i <= max; i++){
-
-        let mineGen = numRandom(1, 16);
-
-        mineGen.addEventListener("click",
-        
-        function(){
-
-            mineGen.classList.add("mine")
-
-        }
-        
-        )
-
-        containerDiv.append(mineGen);
-
-    }
-
-} */
