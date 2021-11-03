@@ -50,16 +50,6 @@ buttonHard.addEventListener('click', function() {
 
 /* andiamo a riportare la funzione e a creare il numero di celle necessarie in base al livello scelto dall'utente */
 
-/* function mineGeneration(elementMine, classMine){
-
-    let bombs = document.createElement(elementMine);
-
-    bombs.classList.add(classMine)
-
-    return bombs
-
-} */
-
 function play(difficulty, classes) {
 
     /* creaimo un'array per le mine */
@@ -83,6 +73,8 @@ function play(difficulty, classes) {
         }
 
     }
+
+    /* creiamo un ciclo per fare i quadrati */
     
     for (let i = 1; i <= difficulty; i++){
 
@@ -96,20 +88,17 @@ function play(difficulty, classes) {
         
         function(){
 
+            /* creiamo le mine */
+
             let id = parseInt(newElement.id);
 
             if(arrMine.includes(id)) {
 
                 this.classList.add("mine");
 
-                resultGame.innerHTML = `Hai perso`;
-
-            } /* else {
-
-                resultGame.innerHTML = `Hai vinto`;
-
-            } */
-
+                lose(arrMine, difficulty, id);
+                
+            } 
 
             newElement.classList.add("clicked");
 
@@ -124,8 +113,36 @@ function play(difficulty, classes) {
 
         containerDiv.append(newElement);
 
+        if (arrMine.length === 1){
+
+            newElement.setAttribute("disabled", false)
+        
+        }
+
     }
 }
+
+/* facciamo apparire tutti i quadrati rossi quando si clicca sul primo */
+
+function lose(arrMine, difficulty) {
+
+    for (let i = 0; i < difficulty; i++) {
+
+        if (arrMine.includes(i)) {
+
+            document.querySelector('[id="' + i + '"]').classList.add("mine");
+
+            resultGame.innerHTML = `Hai perso`;
+
+        } 
+
+    }
+
+    alert(`hai perso`);
+
+}
+
+/* creiamo un contatore per il punteggio ottenuto dall'utente in base ai click */
 
 let counterDisplay = document.getElementById("counter");
 
@@ -133,12 +150,12 @@ let count = 0;
 
 containerDiv.addEventListener ("click",
 
-function(){
+    function(){
 
-    count++
+        count++
 
-    counterDisplay.innerHTML = `Punteggio ${count}`;
+        counterDisplay.innerHTML = `Punteggio ${count}`;
 
-}
+    }
 
 )
